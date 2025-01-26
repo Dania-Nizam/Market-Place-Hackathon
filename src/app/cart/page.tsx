@@ -11,7 +11,7 @@ import Swal from "sweetalert2";
 import { urlFor } from "@/sanity/lib/image";
 import Image from "next/image";
 
-const page = () => {
+const Page = () => {
   const [cartItems, setCartItems] = useState<Car[]>([]);
 
   useEffect(() => {
@@ -146,4 +146,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;
