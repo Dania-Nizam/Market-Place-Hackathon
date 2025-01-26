@@ -5,7 +5,7 @@ import React from "react";
 import Image from "next/image";
 import Reviews from "../../components/Rewievs";
 import Sidebar from "@/components/Sidebar";
-import CarRental from "@/components/CarRental";
+
 import Recent from "@/components/Recent";
 
 const Detail = () => {
@@ -112,7 +112,7 @@ const Detail = () => {
 
         {/* Recent Section */}
         <div className="">
-          <Recent/>
+          <Recent />
         </div>
       </section>
     </div>
