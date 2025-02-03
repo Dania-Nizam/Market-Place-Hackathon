@@ -1,25 +1,23 @@
 "use client";
 
 import React from "react";
-
 import Image from "next/image";
 import Reviews from "../../components/Rewievs";
 import Sidebar from "@/components/Sidebar";
-
 import Recent from "@/components/Recent";
 
 const Detail = () => {
   return (
-    <div className="p-6 mt-0 bg-[#F6F7F9] flex flex-col lg:flex-row  lg:w-[1340px] lg:space-x-6">
+    <div className="p-6 mt-0 bg-[#F6F7F9] flex flex-col lg:flex-row lg:w-[1340px] lg:space-x-6">
       {/* Side bar section*/}
       <Sidebar />
       {/* Main Content Section */}
-      <section className="text-gray-600 body-font bg-[#F6F7F9]  flex-1">
+      <section className="text-gray-600 body-font bg-[#F6F7F9] flex-1">
         <div className="container mx-auto px-5 py-12">
           {/* Flex Container for Sports Car and Nissan GT */}
           <div className="flex flex-col lg:flex-row lg:space-x-4">
             {/* Sports Car Section */}
-            <div className="flex-1 bg-[#3563E9] rounded-[10px] lg:w-[492px] h-[350px] p-6 text-white">
+            <div className="flex-1 bg-[#3563E9] rounded-[10px] lg:w-[492px] h-[350px] p-6 text-white transition-all duration-300 hover:scale-105 hover:shadow-xl">
               <h1 className="font-sans font-semibold text-[32px] lg:text-4xl mb-4 leading-[48px] tracking-[-3%]">
                 Sports car with the best design and acceleration
               </h1>
@@ -32,7 +30,7 @@ const Detail = () => {
               <div className="mb-4">
                 <Image
                   alt="Sports Car"
-                  className="rounded"
+                  className="rounded transition-all duration-300 hover:scale-105"
                   src="/car8.png" // Image must exist in public folder
                   width={380}
                   height={220}
@@ -41,7 +39,7 @@ const Detail = () => {
             </div>
 
             {/* Nissan GT Section */}
-            <div className="flex-1 bg-white rounded-[10px] lg:w-[492px] h-[508px] p-6 mt-8 lg:mt-0">
+            <div className="flex-1 bg-white rounded-[10px] lg:w-[492px] h-[508px] p-6 mt-8 lg:mt-0 transition-all duration-300 hover:scale-105 hover:shadow-xl">
               <h1 className="text-gray-900 text-3xl font-semibold mb-4">
                 Nissan GT - R
               </h1>
@@ -83,7 +81,7 @@ const Detail = () => {
                 <span className="ml-2 text-base sm:block hidden text-[#90A3BF] line-through">
                   $100.00
                 </span>
-                <button className="ml-auto bg-[#3563E9] lg:w-[140px] h-[56px] w-[100px]  text-white py-2 px-6 rounded hover:bg-[#2A4EBA]">
+                <button className="ml-auto bg-[#3563E9] lg:w-[140px] h-[56px] w-[100px] text-white py-2 px-6 rounded transition-all duration-300 hover:bg-[#2A4EBA] hover:scale-105">
                   Rent Now
                 </button>
               </div>
@@ -91,7 +89,7 @@ const Detail = () => {
           </div>
 
           {/* Smaller Images outside the blue div */}
-          <div className="flex sm:flex-row flex-col justify-center  lg:mr-[500px] gap-3 mt-6 lg:mt-0">
+          <div className="flex sm:flex-row flex-col justify-center lg:mr-[500px] gap-3 mt-6 lg:mt-0">
             {[1, 2, 3].map((_, idx) => (
               <Image
                 key={idx}
@@ -99,7 +97,7 @@ const Detail = () => {
                 alt={`View ${idx + 1}`}
                 width={148}
                 height={124}
-                className="rounded shadow-md  "
+                className="rounded shadow-md transition-all duration-300 hover:scale-105"
               />
             ))}
           </div>

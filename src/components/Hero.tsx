@@ -25,7 +25,7 @@ const HeroSection = () => {
       {/* Parent container to align both sections side by side */}
       <div className="flex flex-wrap gap-6 p-6">
         {/* First Section */}
-        <div className="flex-1 min-w-[280px] lg:w-[500px] sm:w-[640px] bg-[#54A6FF] rounded-[10px] p-6 shadow-lg">
+        <div className="flex-1 min-w-[280px] lg:w-[500px] sm:w-[640px] bg-[#54A6FF] rounded-[10px] p-6 shadow-lg transform transition-transform duration-300 hover:scale-105">
           {heroData.slice(0, 1).map((item, index) => (
             <div
               key={index}
@@ -39,7 +39,7 @@ const HeroSection = () => {
                 <p className="mb-6 text-sm sm:text-base leading-[20px] sm:leading-[24px] tracking-[-2%] font-medium">
                   {item.description}
                 </p>
-                <button className="text-white w-[120px] h-[44px] bg-[#3563E9] font-semibold py-2 px-4 rounded hover:bg-blue-700">
+                <button className="text-white w-[120px] h-[44px] bg-[#3563E9] font-semibold py-2 px-4 rounded hover:bg-blue-700 transform transition duration-300 hover:scale-105">
                   {item.buttonText}
                 </button>
               </div>
@@ -58,7 +58,7 @@ const HeroSection = () => {
         </div>
 
         {/* Second Section */}
-        <div className="flex-1 min-w-[280px] lg:w-[500px] bg-[#3563E9] rounded-lg p-6 shadow-lg">
+        <div className="flex-1 min-w-[280px] lg:w-[500px] bg-[#3563E9] rounded-lg p-6 shadow-lg transform transition-transform duration-300 hover:scale-105">
           {heroData.slice(1, 2).map((item, index) => (
             <div
               key={index}
@@ -72,7 +72,7 @@ const HeroSection = () => {
                 <p className="mb-6 text-sm sm:text-base leading-[20px] sm:leading-[24px] tracking-[-2%] font-medium">
                   {item.description}
                 </p>
-                <button className="text-white bg-[#54A6FF] font-semibold py-2 px-4 rounded hover:bg-blue-700">
+                <button className="text-white bg-[#54A6FF] font-semibold py-2 px-4 rounded hover:bg-blue-700 transform transition duration-300 hover:scale-105">
                   {item.buttonText}
                 </button>
               </div>

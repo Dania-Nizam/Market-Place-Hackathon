@@ -29,7 +29,7 @@ const CarFilter: React.FC<CarFilterProps> = ({ types, capacities, setFilters }) 
         <select
           id="type"
           name="type"
-          className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md"
+          className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#3563E9] focus:border-transparent hover:border-blue-500 transition duration-300"
           onChange={handleFilterChange}
         >
           <option value="">Select Type</option>
@@ -44,7 +44,7 @@ const CarFilter: React.FC<CarFilterProps> = ({ types, capacities, setFilters }) 
         <select
           id="capacity"
           name="capacity"
-          className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md"
+          className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#3563E9] focus:border-transparent hover:border-blue-500 transition duration-300"
           onChange={handleFilterChange}
         >
           <option value="">Select Capacity</option>
@@ -60,7 +60,7 @@ const CarFilter: React.FC<CarFilterProps> = ({ types, capacities, setFilters }) 
           type="number"
           id="price"
           name="price"
-          className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md"
+          className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#3563E9] focus:border-transparent hover:border-blue-500 transition duration-300"
           onChange={handleFilterChange}
         />
       </div>

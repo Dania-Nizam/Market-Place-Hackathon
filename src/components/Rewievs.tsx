@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React, { useState, useEffect } from "react";
 
 interface Review {
@@ -51,8 +51,8 @@ const Reviews: React.FC = () => {
   };
 
   return (
-    <div className="p-6 bg-gray-100 rounded-lg shadow-md">
-      <h2 className="text-2xl font-bold text-gray-800 mb-4">Customer Reviews</h2>
+    <div className="p-6 bg-gray-100 rounded-lg shadow-md max-w-4xl mx-auto">
+      <h2 className="text-2xl font-bold text-gray-800 mb-4 text-center">Customer Reviews</h2>
 
       {/* Form for adding new reviews */}
       <form
@@ -108,7 +108,7 @@ const Reviews: React.FC = () => {
         </div>
         <button
           type="submit"
-          className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+          className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition-all duration-300"
         >
           Submit Review
         </button>
@@ -116,15 +116,16 @@ const Reviews: React.FC = () => {
 
       {/* Reviews list */}
       {loading ? (
-        <p className="text-gray-600">Loading reviews...</p>
+        <p className="text-gray-600 text-center">Loading reviews...</p>
       ) : reviews.length > 0 ? (
         <ul className="space-y-4">
           {reviews.map((review) => (
-            <li key={review.id} className="p-4 bg-white rounded-lg shadow">
+            <li
+              key={review.id}
+              className="p-4 bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+            >
               <div className="flex items-center justify-between">
-                <h3 className="text-lg font-semibold text-gray-800">
-                  {review.name}
-                </h3>
+                <h3 className="text-lg font-semibold text-gray-800">{review.name}</h3>
                 <span className="text-yellow-500">
                   {"★".repeat(review.rating)}
                   <span className="text-gray-400">
@@ -137,7 +138,7 @@ const Reviews: React.FC = () => {
           ))}
         </ul>
       ) : (
-        <p className="text-gray-600">No reviews yet. Be the first to leave one!</p>
+        <p className="text-gray-600 text-center">No reviews yet. Be the first to leave one!</p>
       )}
     </div>
   );

@@ -2,7 +2,7 @@ export interface Car {
     _id:string;
     name:string;
     type:"product";
-    image?:{
+    image?: string | {
         asset:{
             _ref:string;
             _type:"image";

@@ -4,6 +4,7 @@ import "./globals.css";
 
 import Navbar from "../components/NavBar";
 import Footer from "@/components/Footer";
+import Layout from "@/components/Layout";
 
 
 
@@ -24,10 +25,12 @@ export default function RootLayout({
       <body className={inter.className}>
         
 
+        <Layout>
         <Navbar />
         {children}
         <Footer />
         
+        </Layout>
       </body>
     </html>
   );

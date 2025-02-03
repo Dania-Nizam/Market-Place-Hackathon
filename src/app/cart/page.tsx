@@ -10,6 +10,7 @@ import {
 import Swal from "sweetalert2";
 import { urlFor } from "@/sanity/lib/image";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 const Page = () => {
   const [cartItems, setCartItems] = useState<Car[]>([]);
@@ -58,6 +59,8 @@ const Page = () => {
     );
   };
 
+  const router = useRouter();
+
   const handleProceed = () => {
     Swal.fire({
       title: "Proceed to Checkout?",
@@ -74,6 +77,7 @@ const Page = () => {
           "Your order has been successfully processed.",
           "success"
         );
+        router.push("/checkout");
         setCartItems([]);
       }
     });
@@ -81,49 +85,60 @@ const Page = () => {
 
   return (
     <div className="container mx-auto p-4">
-      <h1 className="text-2xl font-bold mb-4">Your Cart</h1>
+      <h1 className="text-2xl font-bold mb-4 text-center">Your Cart</h1>
 
       {cartItems.length > 0 ? (
-        <div className="space-y-4">
+        <div className="space-y-6">
           {cartItems.map((item) => (
             <div
               key={item._id}
-              className="flex items-center justify-between bg-white shadow-md rounded-lg p-4"
+              className="flex flex-wrap md:flex-nowrap items-center justify-between bg-white shadow-md rounded-lg p-4"
             >
               {item.image && (
-                <Image
-                  src={urlFor(item.image).url()}
-                  className="w-48  object-cover rounded-lg"
-                  alt="image"
-                  width={2000}
-                  height={2000}
-                />
+                <div className="w-full md:w-1/3 flex justify-center">
+                  <Image
+                    src={urlFor(item.image).url()}
+                    alt="Product Image"
+                    className="rounded-lg object-cover"
+                    width={2000}
+                    height={2000}
+                  />
+                </div>
               )}
-              <p className="text-gray-600">
-                ${typeof item.price === "number" ? item.price.toFixed(2) : "0.00"}
-              </p>
 
-              <div className="flex items-center space-x-2">
+              <div className="flex flex-col md:w-1/3 text-center md:text-left">
+                <h2 className="font-semibold text-lg">{item.name}</h2>
+                <p className="text-gray-600">
+                  $
+                  {item.price && !isNaN(item.price)
+                    ? Number(item.price).toFixed(2)
+                    : "0:00"}
+                </p>
+              </div>
+
+              <div className="flex flex-col md:flex-row items-center md:w-1/3 justify-end space-y-3 md:space-y-0 md:space-x-4">
+                <div className="flex items-center space-x-2">
+                  <button
+                    className="px-2 py-1 bg-gray-200 rounded hover:bg-gray-300"
+                    onClick={() => handleDecrement(item._id)}
+                  >
+                    -
+                  </button>
+                  <span className="font-medium">{item.inventory}</span>
+                  <button
+                    className="px-2 py-1 bg-gray-200 rounded hover:bg-gray-300"
+                    onClick={() => handleIncrement(item._id)}
+                  >
+                    +
+                  </button>
+                </div>
                 <button
-                  className="px-2 py-1 bg-gray-200 rounded"
-                  onClick={() => handleDecrement(item._id)}
+                  className="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600"
+                  onClick={() => handleRemove(item._id)}
                 >
-                  -
-                </button>
-                <span>{item.inventory}</span>
-                <button
-                  className="px-2 py-1 bg-gray-200 rounded"
-                  onClick={() => handleIncrement(item._id)}
-                >
-                  +
+                  Remove
                 </button>
               </div>
-              <button
-                className="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600"
-                onClick={() => handleRemove(item._id)}
-              >
-                Remove
-              </button>
             </div>
           ))}
 
@@ -140,7 +155,7 @@ const Page = () => {
           </div>
         </div>
       ) : (
-        <p className="text-gray-600">Your cart is empty.</p>
+        <p className="text-gray-600 text-center">Your cart is empty.</p>
       )}
     </div>
   );
