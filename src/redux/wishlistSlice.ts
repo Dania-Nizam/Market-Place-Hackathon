@@ -10,8 +10,17 @@ interface WishlistState {
   items: Car[];
 }
 
+// LocalStorage se data load karne ka function
+const loadWishlistFromLocalStorage = (): Car[] => {
+  if (typeof window !== "undefined") {
+    const storedWishlist = localStorage.getItem("wishlist");
+    return storedWishlist ? JSON.parse(storedWishlist) : [];
+  }
+  return [];
+};
+
 const initialState: WishlistState = {
-  items: [],
+  items: loadWishlistFromLocalStorage(),
 };
 
 export const wishlistSlice = createSlice({
@@ -21,10 +30,12 @@ export const wishlistSlice = createSlice({
     addToWishlist: (state, action: PayloadAction<Car>) => {
       if (!state.items.some((item) => item.id === action.payload.id)) {
         state.items.push(action.payload);
+        localStorage.setItem("wishlist", JSON.stringify(state.items));
       }
     },
     removeFromWishlist: (state, action: PayloadAction<string>) => {
       state.items = state.items.filter((item) => item.id !== action.payload);
+      localStorage.setItem("wishlist", JSON.stringify(state.items));
     },
   },
 });

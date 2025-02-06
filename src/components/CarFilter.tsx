@@ -23,13 +23,14 @@ const CarFilter: React.FC<CarFilterProps> = ({ types, capacities, setFilters }) 
   };
 
   return (
-    <div className="p-5 space-y-4 bg-white shadow-md rounded-md">
-      <div>
-        <label htmlFor="type" className="block text-sm font-medium text-gray-700">Car Type</label>
+    <div className="p-6 space-y-6 bg-white shadow-lg rounded-lg border border-gray-200">
+      {/* Car Type Filter */}
+      <div className="space-y-2">
+        <label htmlFor="type" className="text-sm font-medium text-gray-800">Car Type</label>
         <select
           id="type"
           name="type"
-          className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#3563E9] focus:border-transparent hover:border-blue-500 transition duration-300"
+          className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-300 ease-in-out transform hover:scale-105"
           onChange={handleFilterChange}
         >
           <option value="">Select Type</option>
@@ -39,12 +40,13 @@ const CarFilter: React.FC<CarFilterProps> = ({ types, capacities, setFilters }) 
         </select>
       </div>
 
-      <div>
-        <label htmlFor="capacity" className="block text-sm font-medium text-gray-700">Capacity</label>
+      {/* Capacity Filter */}
+      <div className="space-y-2">
+        <label htmlFor="capacity" className="text-sm font-medium text-gray-800">Capacity</label>
         <select
           id="capacity"
           name="capacity"
-          className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#3563E9] focus:border-transparent hover:border-blue-500 transition duration-300"
+          className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-300 ease-in-out transform hover:scale-105"
           onChange={handleFilterChange}
         >
           <option value="">Select Capacity</option>
@@ -54,13 +56,14 @@ const CarFilter: React.FC<CarFilterProps> = ({ types, capacities, setFilters }) 
         </select>
       </div>
 
-      <div>
-        <label htmlFor="price" className="block text-sm font-medium text-gray-700">Max Price</label>
+      {/* Max Price Filter */}
+      <div className="space-y-2">
+        <label htmlFor="price" className="text-sm font-medium text-gray-800">Max Price</label>
         <input
           type="number"
           id="price"
           name="price"
-          className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#3563E9] focus:border-transparent hover:border-blue-500 transition duration-300"
+          className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-300 ease-in-out transform hover:scale-105"
           onChange={handleFilterChange}
         />
       </div>

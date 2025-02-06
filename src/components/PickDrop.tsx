@@ -2,7 +2,7 @@ import { HiOutlineArrowsUpDown } from "react-icons/hi2";
 
 const PickupDropoffSection = () => {
   return (
-    <div className="flex flex-col xl:flex-row justify-between items-center bg-white p-4 rounded-md shadow-md mt-4 lg:w-[1200px] mx-auto space-y-4 xl:space-y-0">
+    <div className="flex flex-col xl:flex-row justify-between items-center bg-white p-4 rounded-md shadow-md mt-4 xl:w-[1200px] mx-auto space-y-4 xl:space-y-0">
       {/* Pickup Section */}
       <div className="flex-1 flex flex-col space-y-2">
         <h3 className="text-md font-semibold text-center xl:text-left">Pick-Up</h3>
@@ -10,6 +10,11 @@ const PickupDropoffSection = () => {
           <div className="w-full lg:w-1/3">
             <select className="border border-gray-300 rounded px-3 py-1.5 w-full text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
               <option>Select your city</option>
+              <option>Karachi</option>
+              <option>Lahore</option>
+              <option>Islamabad</option>
+              <option>Balochistan</option>
+              <option>KPK</option>
             </select>
           </div>
           <div className="w-full lg:w-1/3">
@@ -41,6 +46,11 @@ const PickupDropoffSection = () => {
           <div className="w-full lg:w-1/3">
             <select className="border border-gray-300 rounded px-3 py-1.5 w-full text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
               <option>Select your city</option>
+              <option>Karachi</option>
+              <option>Lahore</option>
+              <option>Islamabad</option>
+              <option>Balochistan</option>
+              <option>KPK</option>
             </select>
           </div>
           <div className="w-full lg:w-1/3">

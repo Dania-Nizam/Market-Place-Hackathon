@@ -106,6 +106,16 @@ export default function CheckoutPage() {
           try {
             await client.create(rentData);
             localStorage.removeItem("appliedDiscount");
+            // Reset the form values after successful payment
+            setFormValues({
+              firstName: "",
+              lastName: "",
+              address: "",
+              city: "",
+              zipCode: "",
+              phone: "",
+              email: "",
+            });
             Swal.fire("Success!", "Your order has been successfully processed!", "success");
           } catch (error) {
             console.error("Error creating order:", error);

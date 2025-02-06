@@ -21,7 +21,7 @@ const HeroSection = () => {
   ];
 
   return (
-    <div className="lg:w-[1360px] mx-auto px-4">
+    <div className="xl:w-[1360px] mx-auto px-4">
       {/* Parent container to align both sections side by side */}
       <div className="flex flex-wrap gap-6 p-6">
         {/* First Section */}

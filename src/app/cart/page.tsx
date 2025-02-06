@@ -77,8 +77,13 @@ const Page = () => {
           "Your order has been successfully processed.",
           "success"
         );
-        router.push("/checkout");
+
+        // Empty the cart after checkout
         setCartItems([]);
+        localStorage.removeItem("cart"); // Optional: Remove cart from localStorage if you're storing it there
+
+        // Redirect to checkout page
+        router.push("/checkout");
       }
     });
   };
@@ -112,7 +117,7 @@ const Page = () => {
                   $
                   {item.price && !isNaN(item.price)
                     ? Number(item.price).toFixed(2)
-                    : "0:00"}
+                    : "0.00"}
                 </p>
               </div>
 

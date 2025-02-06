@@ -14,8 +14,14 @@ import { RootState } from "../redux/store";
 
 const Recommendation = () => {
   const [carsFromSanity, setCarsFromSanity] = useState<Car[]>([]);
+  const [isMounted, setIsMounted] = useState(false); // Flag for client-side rendering
   const dispatch = useDispatch();
   const wishlist = useSelector((state: RootState) => state.wishlist.items);
+  const cart = useSelector((state: RootState) => state.cart.items);
+
+  useEffect(() => {
+    setIsMounted(true); // Ensure rendering only on the client side
+  }, []);
 
   useEffect(() => {
     async function fetchCars() {
@@ -27,8 +33,7 @@ const Recommendation = () => {
 
   const handleAddToCart = (e: React.MouseEvent, car: Car) => {
     e.preventDefault();
-    
-    // Enhanced Swal with custom styles and more details
+
     Swal.fire({
       position: "top-right",
       icon: "success",
@@ -40,11 +45,11 @@ const Recommendation = () => {
       showCancelButton: true,
       cancelButtonText: "Continue Shopping",
       cancelButtonColor: "#D1D5DB",
-      timer: 3000,
+      timer: 900,
       timerProgressBar: true,
       didClose: () => {
         addToCart(car); // Add car to cart after alert closes
-      }
+      },
     });
   };
 
@@ -64,14 +69,18 @@ const Recommendation = () => {
     }
   };
 
+  if (!isMounted) {
+    return null; // Prevent rendering before client-side hydration is complete
+  }
+
   return (
-    <div className="p-6 w-full lg:w-[1350px] bg-[#F6F7F9] mx-auto">
+    <div className="p-6 w-full xl:w-[1350px] bg-[#F6F7F9] mx-auto">
       <div className="text-center mb-6">
         <h2 className="text-base font-semibold text-[#90A3BF]">Recommended Cars</h2>
       </div>
 
       {/* Grid for cars fetched from Sanity */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3  lg:grid-cols-3 xl:grid-cols-4 gap-6">
         {carsFromSanity.map((car) => (
           <Link href={`/car/${car.slug?.current}`} key={car._id}>
             <div className="border border-gray-300 rounded-lg shadow-md bg-white overflow-hidden transform transition-transform duration-300 hover:scale-105 flex flex-col justify-between h-[350px]">
