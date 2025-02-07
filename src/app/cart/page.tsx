@@ -72,18 +72,19 @@ const Page = () => {
       confirmButtonText: "Yes, Proceed!",
     }).then((result) => {
       if (result.isConfirmed) {
-        Swal.fire(
-          "Success",
-          "Your order has been successfully processed.",
-          "success"
-        );
+        // Proceed with payment (Simulate payment success here)
+        Swal.fire({
+          title: "Processing Payment...",
+          text: "Please wait a moment.",
+          icon: "info",
+        }).then(() => {
+          // Simulate payment success (this could be replaced with actual payment logic)
+          Swal.fire("Payment Successful!", "Your order has been processed.", "success");
 
-        // Empty the cart after checkout
-        setCartItems([]);
-        localStorage.removeItem("cart"); // Optional: Remove cart from localStorage if you're storing it there
-
-        // Redirect to checkout page
-        router.push("/checkout");
+          // Optionally, leave the cart intact without clearing it
+          // For example, you can just redirect to a thank-you page or checkout confirmation page
+          router.push("/checkout");
+        });
       }
     });
   };
@@ -114,8 +115,7 @@ const Page = () => {
               <div className="flex flex-col md:w-1/3 text-center md:text-left">
                 <h2 className="font-semibold text-lg">{item.name}</h2>
                 <p className="text-gray-600">
-                  $
-                  {item.price && !isNaN(item.price)
+                  ${item.price && !isNaN(item.price)
                     ? Number(item.price).toFixed(2)
                     : "0.00"}
                 </p>

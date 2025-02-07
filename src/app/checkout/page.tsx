@@ -47,10 +47,12 @@ export default function CheckoutPage() {
     }
   }, []);
 
-  const subtotal = cartItems.reduce(
-    (total, item) => total + item.price * item.inventory,
-    0
-  );
+  const subtotal = cartItems.reduce((total, item) => {
+    const price = item.price && !isNaN(item.price) ? item.price : 0;
+    const inventory = item.inventory && !isNaN(item.inventory) ? item.inventory : 0;
+    return total + price * inventory;
+  }, 0);
+
   const total = Math.max(subtotal - discount, 0);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -106,7 +108,8 @@ export default function CheckoutPage() {
           try {
             await client.create(rentData);
             localStorage.removeItem("appliedDiscount");
-            // Reset the form values after successful payment
+            
+            // Reset form values and errors after order
             setFormValues({
               firstName: "",
               lastName: "",
@@ -116,6 +119,19 @@ export default function CheckoutPage() {
               phone: "",
               email: "",
             });
+            setFormErrors({
+              firstName: false,
+              lastName: false,
+              address: false,
+              city: false,
+              zipCode: false,
+              phone: false,
+              email: false,
+            });
+
+            // Clear cart in state
+            setCartItems([]);
+
             Swal.fire("Success!", "Your order has been successfully processed!", "success");
           } catch (error) {
             console.error("Error creating order:", error);
@@ -169,8 +185,8 @@ export default function CheckoutPage() {
             <p className="text-sm text-gray-500">Your cart is empty.</p>
           )}
           <div className="text-right pt-4">
-            <p className="text-sm">Subtotal: <span className="font-medium">${subtotal}</span></p>
-            <p className="text-sm">Discount: <span className="font-medium">-${discount}</span></p>
+            <p className="text-sm">Subtotal: <span className="font-medium">${subtotal.toFixed(2)}</span></p>
+            <p className="text-sm">Discount: <span className="font-medium">-${discount.toFixed(2)}</span></p>
             <p className="text-lg font-semibold">Total: ${total.toFixed(2)}</p>
           </div>
         </div>
