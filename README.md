@@ -1,36 +1,75 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🚗 Car Rental Ecommerce Marketplace  
 
-## Getting Started
+## 🌟 Overview  
+Our **Car Rental eCommerce Marketplace** offers a seamless and engaging user experience with a beautifully designed **hover-effect navigation bar**, dynamic car listings, and an intuitive booking system.  
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🔹 Features  
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 🏠 Navigation Bar  
+- **🔍 Search Icon** – Explore a wide selection of rental cars on the **search page**.  
+- **🏠 Morent Logo** – Redirects to the **home page**.  
+- **❤️ Wishlist Icon** – Access your **wishlist page** to view and manage saved cars.  
+- **🛒 Cart Icon** – Navigate to the **cart page** to review selected rental cars.  
+- **🔑 Login/Logout Icon** – Authenticate securely via:  
+  - **GitHub Login**  
+  - **Google Login**  
+  - **Email & Password Login** (Powered by **NextAuth**)  
+- **🚘 Car Filter Icon** – Refine your search by **car type and price range**.  
+- **⭐ Review Icon** – Visit the **review page** to **rate, comment, and submit feedback**.  
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## 🚀 Key Features  
 
-## Learn More
+### 1️⃣ **Stunning Hero Section**  
+- Displays two featured **car cards** for a visually engaging experience.  
 
-To learn more about Next.js, take a look at the following resources:
+### 2️⃣ **Dynamic Recommendation Section**  
+- **Fetches recommended cars from Sanity API** in real-time.  
+- Each car card includes:  
+  - ✅ **Wishlist Button** – Save and remove cars from your wishlist.  
+  - ✅ **Rent Now Button** – Instantly add cars to your **cart**.  
+  - ✅ **Quantity Control** – Adjust the number of rental cars directly from the cart.  
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## 🛍️ **Checkout Process**  
+1. **Cart Page:**  
+   - Review your selected cars.  
+   - Modify rental quantities.  
+   - Remove unwanted cars.  
+2. **Checkout Page:**  
+   - Click **“Proceed to Checkout”** to enter a secure payment page.  
+   - Fill out the **payment form** and review the **order summary**.  
+3. **Order Confirmation:**  
+   - Upon placing the order, data is stored in **Sanity** and reflected in the **Admin Dashboard**.  
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🔚 **Additional Features**  
+- **📌 Elegant Footer** – Well-structured for enhanced navigation.  
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+---
+
+## 🎯 **Why Choose This Marketplace?**  
+✅ **Fast & User-Friendly Navigation**  
+✅ **Secure Authentication with NextAuth**  
+✅ **Real-Time Data Fetching via Sanity API**  
+✅ **Wishlist & Cart Functionality for Personalized Experience**  
+✅ **Seamless Checkout & Secure Payment Integration**  
+
+---
+
+## 🛠️ **Technologies Used**  
+- **Next.js**  
+- **Tailwind CSS**  
+- **TypeScript**  
+- **Sanity.io (Headless CMS & API)**  
+- **NextAuth (Authentication)**  
+- **Redux Toolkit (State Management)**  
+
+---
+
+🚀 **Experience the Future of Car Rentals – Hassle-Free, Smart & Efficient!**  
